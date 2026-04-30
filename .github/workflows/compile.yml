@@ -1,0 +1,29 @@
+name: Compile LaTeX
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile all .tex files
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            cs_ege/task_16_recursion/tasks.tex
+            cs_ege/task_17_files/tasks.tex
+          work_in_root_file_dir: true
+
+      - name: Commit compiled PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add **/*.pdf
+          git diff --staged --quiet || git commit -m "Auto-compile PDFs [skip ci]"
+          git push
