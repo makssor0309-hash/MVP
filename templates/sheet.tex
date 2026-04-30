@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage[left=25mm, top=20mm, right=25mm, bottom=30mm, nohead, nofoot]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{fancybox,fancyhdr}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, allcolors=[RGB]{010 090 200}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\StudentName}
+\fancyhead[R]{\Subject}
+\fancyfoot[R]{\thepage}
+\headsep=10mm
+
+% ============================================================
+% ПЕРЕМЕННЫЕ — заполняются при генерации листа для ученика
+% ============================================================
+\def\StudentName{Имя Фамилия}
+\def\Subject{Информатика ЕГЭ}
+\def\SheetTitle{ДЗ 1 — Задание 23}
+\def\SheetDate{01.01.2025}
+% ============================================================
+
+\newcommand{\lr}[1]{\left({#1}\right)}
+
+\begin{document}
+\Large
+\section*{\SheetTitle \hfill \normalsize\SheetDate}
+
+\bigskip
+
+% ============================================================
+% ЗАДАЧИ — вставляются автоматически по ID из базы
+% ============================================================
+
+\begin{enumerate}[label=\textbf{Задача \arabic*.}, leftmargin=*, itemsep=6mm]
+
+  \item % TASK_ID: cs_ege_23_easy_001
+  Место для условия задачи 1.
+
+  \item % TASK_ID: cs_ege_23_easy_002
+  Место для условия задачи 2.
+
+\end{enumerate}
+
+\end{document}

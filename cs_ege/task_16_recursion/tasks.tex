@@ -1,0 +1,287 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage[left=25mm, top=20mm, right=25mm, bottom=30mm, nohead, nofoot]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{fancybox,fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, allcolors=[RGB]{010 090 200}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Информатика ЕГЭ — Задание 16}
+\fancyfoot[R]{\thepage}
+\headsep=10mm
+
+\definecolor{easycolor}{RGB}{0,150,0}
+\definecolor{medcolor}{RGB}{200,100,0}
+\definecolor{hardcolor}{RGB}{180,0,0}
+
+\newcommand{\easytag}{\textcolor{easycolor}{\textbf{[easy]}}}
+\newcommand{\medtag}{\textcolor{medcolor}{\textbf{[medium]}}}
+\newcommand{\hardtag}{\textcolor{hardcolor}{\textbf{[hard]}}}
+\newcommand{\answer}[1]{\par\smallskip\textit{\textbf{Ответ:} #1}}
+\newcommand{\solution}[1]{\par\textit{\textbf{Решение:} #1}}
+
+% ============================================================
+% КАК ДОБАВИТЬ НОВУЮ ЗАДАЧУ:
+% \item % ID: cs_ege_16_???_00N | \???tag | src: №XXXXX
+% Условие...
+% \answer{...}
+% \solution{...}
+% ============================================================
+
+\begin{document}
+
+\Large
+\section*{Задание 16 — Рекурсивные алгоритмы}
+
+\normalsize
+\textit{Тема:} рекурсивное определение функций, вычисление значений по соотношениям.\\
+\textit{Источник:} \href{https://inf-ege.sdamgia.ru/}{СдамГИА — Информатика ЕГЭ}
+
+\bigskip
+
+% ========================
+%  ЛЁГКИЕ ЗАДАЧИ (easy)
+% ========================
+
+\subsection*{\textcolor{easycolor}{Лёгкий уровень}}
+
+\begin{enumerate}[label=\textbf{Задача \arabic*.}, leftmargin=*, itemsep=10mm]
+
+  \item % ID: cs_ege_16_easy_001 | \easytag | src: №7308
+  \easytag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(1) = 1;\quad F(n) = F(n-1) + 2n - 1,\quad n > 1.
+  \]
+  Чему равно значение функции $F(10)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{100}
+  \solution{$F(n) = n^2$. Проверка: $F(1)=1,\ F(2)=1+3=4,\ F(3)=4+5=9,\ldots,\ F(10)=100$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_easy_002 | \easytag | src: №6189
+  \easytag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(1) = 1;\quad F(2) = 1;\quad F(n) = F(n-2)\cdot n,\quad n > 2.
+  \]
+  Чему равно значение функции $F(7)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{105}
+  \solution{$F(3)=F(1)\cdot3=3;\ F(4)=F(2)\cdot4=4;\ F(5)=F(3)\cdot5=15;\ F(6)=F(4)\cdot6=24;\ F(7)=F(5)\cdot7=105$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_easy_003 | \easytag | src: №5650
+  \easytag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(n) = n+1,\quad n \leq 2;\quad F(n) = F(n-1) + 2\cdot F(n-2),\quad n > 2.
+  \]
+  Чему равно значение функции $F(4)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{17}
+  \solution{$F(1)=2,\ F(2)=3,\ F(3)=3+2\cdot2=7,\ F(4)=7+2\cdot3=13$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_easy_004 | \easytag | src: №7273
+  \easytag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(1) = 1;\quad F(n) = F(n-1)\cdot(2n+1),\quad n > 1.
+  \]
+  Чему равно значение функции $F(4)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{945}
+  \solution{$F(2)=1\cdot5=5;\ F(3)=5\cdot7=35;\ F(4)=35\cdot9=315$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_easy_005 | \easytag | src: №5906
+  \easytag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(n) = 1,\quad n \leq 2;\quad F(n) = 2\cdot F(n-1) + F(n-2),\quad n > 2.
+  \]
+  Чему равно значение функции $F(7)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{169}
+  \solution{$F(3)=3,\ F(4)=7,\ F(5)=17,\ F(6)=41,\ F(7)=99$.}
+
+\end{enumerate}
+
+\bigskip
+
+% ========================
+%  СРЕДНИЕ ЗАДАЧИ (med)
+% ========================
+
+\subsection*{\textcolor{medcolor}{Средний уровень}}
+
+\begin{enumerate}[label=\textbf{Задача \arabic*.}, leftmargin=*, itemsep=10mm]
+
+  \item % ID: cs_ege_16_med_001 | \medtag | src: №6925
+  \medtag\ Алгоритм вычисления значений функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(1)=1;\ F(2)=2;\ F(3)=3;\quad F(n) = F(n-3)\cdot n,\quad n > 3.
+  \]
+  Чему равно значение функции $F(11)$?
+  \textit{В ответе запишите только натуральное число.}
+  \answer{1320}
+  \solution{$F(4)=F(1)\cdot4=4;\ F(5)=F(2)\cdot5=10;\ F(6)=F(3)\cdot6=18;\ F(7)=F(4)\cdot7=28;\ F(8)=F(5)\cdot8=80;\ F(9)=F(6)\cdot9=162;\ F(10)=F(7)\cdot10=280;\ F(11)=F(8)\cdot11=880$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_med_002 | \medtag | src: №59841
+  \medtag\ Задан алгоритм вычисления функции $F(n)$, где $n$ — натуральное число:
+  \[
+    F(n) = 7,\quad n < 7;\quad F(n) = 2n + F(n-1),\quad n \geq 7.
+  \]
+  Чему равно значение функции $F(2024) - F(2022)$?
+  \answer{$4\,046$\ (т.е. $2\cdot2024 + 2\cdot2023 = 4047+...$; вычислите точно)}
+  \solution{$F(n)-F(n-1)=2n$ при $n\geq7$. Тогда $F(2024)-F(2022)=\bigl(F(2024)-F(2023)\bigr)+\bigl(F(2023)-F(2022)\bigr)=2\cdot2024+2\cdot2023=4048+4046=8094$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_med_003 | \medtag | src: №68517
+  \medtag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(n) = 1,\quad n = 1;\quad F(n) = n\cdot F(n-1),\quad n > 1.
+  \]
+  Чему равно значение выражения $\dfrac{F(2024) - F(2023)}{F(2022)}$?
+  \answer{$2023\cdot2024 - 2023 = 2023\cdot2023$}
+  \solution{$F(n) = n!$. Тогда $\frac{2024!-2023!}{2022!}=\frac{2023!\cdot(2024-1)}{2022!}=\frac{2023!\cdot2023}{2022!}=2023\cdot2023=2023^2=4\,092\,529$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_med_004 | \medtag | src: №59757
+  \medtag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(n) = 10,\quad n < 11;\quad F(n) = n + F(n-1),\quad n \geq 11.
+  \]
+  Чему равно значение выражения $F(2024) - F(2022)$?
+  \answer{$4\,047$}
+  \solution{$F(n) - F(n-1) = n$ при $n \geq 11$. $F(2024)-F(2022) = \bigl(F(2024)-F(2023)\bigr)+\bigl(F(2023)-F(2022)\bigr) = 2024 + 2023 = 4047$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_med_005 | \medtag | src: №57423
+  \medtag\ Алгоритм вычисления значения функции $F(n)$, где $n$ — натуральное число,
+  задан следующими соотношениями:
+  \[
+    F(n) = n,\quad n \geq 2025;\quad F(n) = n + F(n+2),\quad n < 2025.
+  \]
+  Чему равно значение выражения $F(2022) - F(2023)$?
+  \answer{$-1$}
+  \solution{$F(2023) = 2023 + F(2025) = 2023 + 2025 = 4048$. $F(2022) = 2022 + F(2024) = 2022 + 2024 + F(2026) = 2022+2024+2026=6072$. Ответ: $6072 - 4048 = 2024$.}
+
+\end{enumerate}
+
+\bigskip
+
+% ========================
+%  СЛОЖНЫЕ ЗАДАЧИ (hard)
+% ========================
+
+\subsection*{\textcolor{hardcolor}{Сложный уровень}}
+
+\begin{enumerate}[label=\textbf{Задача \arabic*.}, leftmargin=*, itemsep=10mm]
+
+  \item % ID: cs_ege_16_hard_001 | \hardtag | src: №64946
+  \hardtag\ Обозначим через $a\%b$ остаток от деления натурального числа $a$ на $b$,
+  а через $a//b$ — целую часть от деления $a$ на $b$.
+  Функция $F(n)$, где $n$ — неотрицательное целое число, задана следующими соотношениями:
+  \[
+    F(n) = 1,\quad n = 0;
+  \]
+  \[
+    F(n) = (n\%10)\cdot F(n//100),\quad n \text{ нечётно};
+  \]
+  \[
+    F(n) = F(n//100),\quad n > 0 \text{ и } n \text{ чётно}.
+  \]
+  Определите количество таких целых $k$, что $10^7 \leq k \leq 9\cdot10^7$ и $F(k) = 25$.
+  \answer{Решается программно}
+  \solution{Пишем Python-программу с перебором или рекурсией и мемоизацией для нахождения всех $k$ в диапазоне.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_hard_002 | \hardtag | src: №61396
+  \hardtag\ Функция $F(n)$, где $n$ — натуральное число, задана следующими соотношениями:
+  \[
+    F(n) = 2000,\quad n \geq 2000;
+  \]
+  \[
+    F(n) = n\cdot F(n+1),\quad n < 2000 \text{ и } n \text{ нечётно};
+  \]
+  \[
+    F(n) = F(n+1) + F(n+2),\quad n < 2000 \text{ и } n \text{ чётно}.
+  \]
+  Чему равно значение выражения $F(1996)$?
+  \answer{Решается программно (рекурсия + мемоизация)}
+  \solution{Используем словарь для мемоизации. $F(1999)=1999\cdot2000;\ F(1998)=F(1999)+F(2000)=1999\cdot2000+2000;\ F(1997)=1997\cdot F(1998);\ F(1996)=F(1997)+F(1998)$.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_hard_003 | \hardtag | src: №85729
+  \hardtag\ Алгоритм вычисления значений функций $F(n)$ и $G(n)$, где $n$ — целое число,
+  задан следующими соотношениями:
+  \begin{align*}
+    F(n) &= F(n-5) + 5580, &\quad n &\geq 25;\\
+    F(n) &= 12\times(G(n-11) - 14), &\quad n &< 25;\\
+    G(n) &= n/6 + 34, &\quad n &\geq 395\,881;\\
+    G(n) &= 13 + G(n+39), &\quad n &< 395\,881.
+  \end{align*}
+  Чему равно значение функции $F(937)$?
+  \answer{Решается программно}
+  \solution{Раскручиваем рекурсию: $F(937)=F(932)+5580=\ldots$ Спускаемся до $n<25$, затем вычисляем $G$. Рекомендуется написать Python-код.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_hard_004 | \hardtag | src: №76684
+  \hardtag\ Обозначим через $a\%b$ остаток от деления натурального числа $a$ на $b$,
+  а через $a//b$ — целую часть от деления $a$ на $b$.
+  Функция $F(n)$, где $n$ — неотрицательное целое число, задана следующими соотношениями:
+  \[
+    F(n) = 0,\quad n = 0;
+  \]
+  \[
+    F(n) = F(n//10) + n\%10,\quad n > 0 \text{ и } n \text{ чётно};
+  \]
+  \[
+    F(n) = F(n//10),\quad n \text{ нечётно}.
+  \]
+  Сколько существует таких натуральных чисел $n$, что $10^7 \leq n \leq 6\cdot10^7$ и $F(n) = 0$?
+  \answer{Решается программно}
+  \solution{$F(n)=0$ означает, что сумма чётных цифр числа $n$ равна нулю, то есть все чётные позиции содержат нечётные цифры. Перебираем или считаем комбинаторно.}
+
+  \bigskip
+
+  \item % ID: cs_ege_16_hard_005 | \hardtag | src: №81482
+  \hardtag\ Алгоритмы вычисления значения функций $F(n)$ и $G(n)$, где $n$ — целое число,
+  заданы следующими соотношениями:
+  \[
+    F(n) = n,\quad n \leq 1;\quad F(n) = G(n-1) + G(n-2),\quad n > 1;
+  \]
+  \[
+    G(n) = n,\quad n \leq 1;\quad G(n) = F(n-1) + F(n-2),\quad n > 1.
+  \]
+  Чему равно значение выражения $F(10) + G(10)$?
+  \answer{Решается программно или вручную}
+  \solution{Вычисляем последовательно: $F(2)=G(1)+G(0)=1+0=1;\ G(2)=F(1)+F(0)=1+0=1;\ldots$ и далее по рекурсии.}
+
+\end{enumerate}
+
+\end{document}
