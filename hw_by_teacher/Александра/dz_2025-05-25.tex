@@ -1,0 +1,288 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage[left=25mm, top=20mm, right=25mm, bottom=30mm, nohead, nofoot]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{fancybox,fancyhdr}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{alltt}
+\usetikzlibrary{arrows.meta}
+
+\hypersetup{colorlinks=true, allcolors=[RGB]{010 090 200}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Информатика ОГЭ}
+\fancyhead[L]{Александра}
+\fancyfoot[R]{\thepage}
+\headsep=10mm
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries\color{blue},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+}
+
+\begin{document}
+
+\Large
+\section*{ДЗ — ОГЭ Информатика, 25 мая}
+
+\normalsize\bigskip
+
+\begin{enumerate}[label=\textbf{Задача \arabic*.}, leftmargin=*, itemsep=10mm]
+
+% ─────────────────────────── 1 ───────────────────────────
+\item \textbf{Тип 1.}
+В кодировке КОИ-8 каждый символ кодируется 8 битами. Аня написала текст
+(в нём нет лишних пробелов):
+
+\begin{center}
+«ерш, Щука, Бычок, Карась, Гимнура, Долгопер — рыбы».
+\end{center}
+
+Ученик вычеркнул из списка название одной из рыб. Заодно он вычеркнул
+ставшие лишними запятые и пробелы — два пробела не должны идти подряд.
+При этом размер нового предложения в данной кодировке оказался на
+\textbf{10 байтов} меньше, чем размер исходного предложения.
+Напишите в ответе вычеркнутое название рыбы.
+
+% ─────────────────────────── 2 ───────────────────────────
+\item \textbf{Тип 2.}
+Валя шифрует русские слова (последовательности букв), записывая вместо
+каждой буквы её код:
+
+\bigskip
+\begin{center}
+\begin{tabular}{cccccc}
+\toprule
+А & Д & К & Н & О & С \\
+\midrule
+01 & 100 & 101 & 10 & 111 & 000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\bigskip
+
+Некоторые цепочки можно расшифровать не одним способом. Например,
+\texttt{00010101} может означать не только СКА, но и СНК.
+
+Даны три кодовые цепочки:
+\[
+  \texttt{1010110} \qquad \texttt{11110001} \qquad \texttt{100000101}
+\]
+
+Найдите среди них ту, которая имеет \textbf{только одну} расшифровку,
+и запишите в ответе расшифрованное слово.
+
+% ─────────────────────────── 3 ───────────────────────────
+\item \textbf{Тип 3.}
+Определите количество натуральных двузначных чисел $x$, для которых
+\textbf{ложно} логическое выражение:
+
+\begin{center}
+НЕ ($x$ чётное) \quad И \quad НЕ ($x$ кратно 13).
+\end{center}
+
+% ─────────────────────────── 4 ───────────────────────────
+\item \textbf{Тип 4.}
+Между населёнными пунктами А, B, C, D, E построены дороги,
+протяжённость которых (в километрах) приведена в таблице:
+
+\bigskip
+\begin{center}
+\begin{tabular}{c|ccccc}
+  & A & B & C & D & E \\
+\hline
+A &   & 3 &   &   &   \\
+B & 3 &   & 1 & 2 & 6 \\
+C &   & 1 &   & 3 &   \\
+D &   & 2 & 3 &   & 3 \\
+E &   & 6 &   & 3 &   \\
+\end{tabular}
+\end{center}
+\bigskip
+
+Определите длину кратчайшего пути между пунктами А и E.
+Передвигаться можно только по дорогам, протяжённость которых
+указана в таблице.
+
+% ─────────────────────────── 5 ───────────────────────────
+\item \textbf{Тип 5.}
+У исполнителя Сигма две команды, которым присвоены номера:
+\begin{enumerate}[label=\arabic*.]
+  \item прибавь 4;
+  \item раздели на $b$ \quad ($b$ — неизвестное натуральное число; $b \geq 2$).
+\end{enumerate}
+Выполняя первую из них, Сигма увеличивает число на экране на 4, а выполняя
+вторую, делит это число на $b$. Программа для исполнителя Сигма — это
+последовательность номеров команд. Известно, что программа \texttt{11211}
+переводит число $49$ в число $27$. Определите значение $b$.
+
+% ─────────────────────────── 6 ───────────────────────────
+\item \textbf{Тип 6.}
+Ниже приведена программа, записанная на трёх языках программирования.
+
+\bigskip
+\begin{center}
+\begin{tabular}{|p{4.2cm}|p{4.2cm}|p{4.7cm}|}
+\hline
+\textbf{Алгоритмический язык} & \textbf{Python} & \textbf{Паскаль} \\[2pt]
+\hline
+\begin{alltt}\footnotesize
+алг
+нач
+  цел s, t, A
+  ввод s
+  ввод t
+  ввод A
+  если s > A
+     или t > 12
+    то вывод "YES"
+    иначе вывод "NO"
+  все
+кон
+\end{alltt}
+&
+\begin{lstlisting}[frame=none,language=Python,basicstyle=\ttfamily\footnotesize]
+s = int(input())
+t = int(input())
+A = int(input())
+if (s>A) or t > 12:
+    print("YES")
+else:
+    print("NO")
+\end{lstlisting}
+&
+\begin{alltt}\footnotesize
+var A, s, t: integer;
+begin
+  readln(s);
+  readln(t);
+  readln(A);
+  if (s > A)
+  or (t > 12)
+  then
+    writeln('YES')
+  else
+    writeln('NO')
+end.
+\end{alltt}
+\\
+\hline
+\end{tabular}
+\end{center}
+\bigskip
+
+Было проведено 9 запусков программы, при которых в качестве значений
+переменных $s$ и $t$ вводились следующие пары чисел:
+$(13, 2)$; $(11, 12)$; $(-12, 12)$; $(2, -2)$; $(-10, -10)$;
+$(6, -5)$; $(2, 8)$; $(9, 10)$; $(1, 13)$.
+
+Укажите наименьшее целое значение параметра $A$, при котором для указанных
+входных данных программа напечатает «YES» \textbf{четыре} раза.
+
+% ─────────────────────────── 7 ───────────────────────────
+\item \textbf{Тип 7.}
+Доступ к файлу \texttt{summer.jpeg}, находящемуся на сервере
+\texttt{weather.info}, осуществляется по протоколу \texttt{ftp}.
+Фрагменты адреса файла закодированы буквами от 1 до 7.
+Запишите последовательность этих букв, кодирующую адрес указанного файла
+в сети Интернет.
+
+\begin{enumerate}[label=\arabic*), itemsep=1pt]
+  \item \texttt{://}
+  \item \texttt{summer}
+  \item \texttt{/}
+  \item \texttt{weather}
+  \item \texttt{ftp}
+  \item \texttt{.jpeg}
+  \item \texttt{.info}
+\end{enumerate}
+
+% ─────────────────────────── 8 ───────────────────────────
+\item \textbf{Тип 8.}
+В языке запросов поискового сервера для обозначения логической операции
+«ИЛИ» используется символ «$|$», а для обозначения логической операции
+«И» — символ «\&».
+
+В таблице приведены запросы и количество найденных по ним страниц
+некоторого сегмента сети Интернет.
+
+\bigskip
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Запрос & Найдено страниц (в тысячах) \\
+\midrule
+Грибы \& Рыбалка           & 134 \\
+Грибы \& Охота              & 243 \\
+Грибы \& Рыбалка \& Охота   & 78  \\
+\bottomrule
+\end{tabular}
+\end{center}
+\bigskip
+
+Компьютер печатает количество страниц (в тысячах), которое будет найдено
+по следующему запросу:
+\[
+  \text{Грибы}\ \&\ (\text{Рыбалка}\ |\ \text{Охота})\,?
+\]
+Считается, что все запросы выполнялись практически одновременно, так что
+набор страниц, содержащих все искомые слова, не изменялся за время
+выполнения запросов.
+
+% ─────────────────────────── 9 ───────────────────────────
+\item \textbf{Тип 9.}
+На рисунке — схема дорог, связывающих города А, Б, В, Г, Д, Е и К.
+По каждой дороге можно двигаться только в одном направлении, указанном
+стрелкой. Сколько существует различных путей из города А в город К?
+
+\bigskip
+\begin{center}
+\begin{tikzpicture}[
+  every node/.style={circle, draw, minimum size=9mm, font=\bfseries\normalsize},
+  ->, >=Stealth, thick,
+  oe/.style={draw=orange!80!black, ->, >=Stealth, thick}
+]
+  \node (A) at (0,   2)   {А};
+  \node (B) at (2.5, 4)   {Б};
+  \node (V) at (3.5, 3)   {В};
+  \node (E) at (5.5, 4)   {Е};
+  \node (K) at (7.5, 2)   {К};
+  \node (G) at (4,   1.5) {Г};
+  \node (D) at (2,   0)   {Д};
+  \node (J) at (6,   0)   {Ж};
+
+  \draw[oe] (A) -- (B);
+  \draw[oe] (A) -- (V);
+  \draw[oe] (A) -- (G);
+  \draw[oe] (A) -- (D);
+  \draw[oe] (B) -- (V);
+  \draw[oe] (B) -- (E);
+  \draw[oe] (V) -- (E);
+  \draw[oe] (V) -- (G);
+  \draw[oe] (V) -- (K);
+  \draw[oe] (G) -- (J);
+  \draw[oe] (D) -- (J);
+  \draw[oe] (E) -- (K);
+  \draw[oe] (J) -- (K);
+\end{tikzpicture}
+\end{center}
+
+% ─────────────────────────── 10 ───────────────────────────
+\item \textbf{Тип 10.}
+Переведите двоичное число $1010101_2$ в десятичную систему счисления.
+
+\end{enumerate}
+
+\end{document}
